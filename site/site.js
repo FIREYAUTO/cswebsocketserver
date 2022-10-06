@@ -68,7 +68,7 @@ function Say(Options={}){
 	let d = new Date();
 	let n = d.toLocaleTimeString();
 	Create("p",Log,{
-		innerHTML:`[<span style="color:#9a9a9a;">${n}</span>] ${Options.Text}`,
+		innerHTML:`<span style="color:#9a9a9a;">[${n}]</span> ${Options.Text}`,
 		style:{
 			color:Options.TextColor||"#efefef",
 		},
@@ -169,7 +169,7 @@ var Blurred = true
 Bar.onblur = function(){Blurred = true}
 Bar.onfocus = function(){Blurred = false}
 
-window.addEventListener("keydown",(event)=>{
+window.addEventListener("keyup",(event)=>{
 	if(event.key.toLowerCase() == "/" && Blurred)
 		Bar.focus();
 });
@@ -187,3 +187,11 @@ Bar.addEventListener("keyup",event=>{
 		Bar.value = "";
 	}
 });
+
+element("clear-btn").addEventListener("mousedown",()=>{
+	let c = Log.firstChild;
+	while(c){
+		c.remove();
+		c=Log.firstChild;
+	}
+})

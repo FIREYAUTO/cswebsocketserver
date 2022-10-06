@@ -40,7 +40,7 @@ const updateUrl = "/cswebsocketserver/";
 		for(let k in files){
 			k=+k;
 			let name = files[k]
-			let contents = await HTTP.Get("fireyauto.github.io",updateUrl+name,name.endsWith(".png")?"utf8":"utf8");
+			let contents = await HTTP.Get("fireyauto.github.io",updateUrl+name,name.endsWith(".png")?"binary":"utf8");
 			console.log(`Updating "${name}" [${k+1}/${fl}]`);
 			fs.writeFileSync(path.join(__dirname,name),contents.trimEnd());
 			console.log("\x1b[32m",`Done Updating "${name}" [${k+1}/${fl}]`,'\x1b[0m');

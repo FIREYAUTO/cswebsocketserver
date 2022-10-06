@@ -110,6 +110,8 @@ function CreateWindow(){
 		},
 	});
 	Window.loadFile("site/index.html");
+	Window.removeMenu();
+
 	//{{ IPC Connections }}\\
 
 	const IPC = {

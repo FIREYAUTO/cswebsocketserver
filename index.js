@@ -1,4 +1,4 @@
-const Version = "0.0.1";
+const Version = "0.0.2";
 const {app:App,BrowserWindow,ipcMain:IPCMain} = require("electron");
 const { endianness } = require("os");
 const Path = require("path");

@@ -1,3 +1,4 @@
+const Version = "0.0.1";
 const {app:App,BrowserWindow,ipcMain:IPCMain} = require("electron");
 const { endianness } = require("os");
 const Path = require("path");
@@ -157,3 +158,42 @@ App.whenReady().then(()=>{
 App.on("window-all-closed",()=>{
 	if(process.platform!=="darwin")App.quit();
 });
+
+//{{ Version Checking }}\\
+
+const HTTPModule = require("https");
+const QueryString = require("querystring");
+
+const HTTP = {
+  Get:async function(Host,Path){
+    let Results = await new Promise(res=>{
+      let req = HTTPModule.request({
+        hostname:Host,
+        path:Path,
+        method:"GET",
+      },r=>{
+		let rawData="";
+		r.on("data",chunk=>{rawData+=chunk});
+		r.on("end",()=>{
+			res(rawData);
+		});
+      });
+      req.end();
+    }).then(a=>{
+      return a.toString();
+    });
+    return Results;
+  },
+  URLEncode:function(Data){
+    return QueryString.stringify(Data);
+  },
+};
+
+(async()=>{
+	const V = await HTTP.Get("fireyauto.github.io","/cswebsocketserver/version.txt");
+	if(Version!=V){
+		console.warn(`You are using an out-of-date version!\nYour Version: ${Version}\nNew Version: ${V}`);
+	}else{
+		console.log(`You are running CS-WS-Server ${V}`);
+	}
+})();

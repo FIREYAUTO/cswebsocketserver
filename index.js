@@ -190,7 +190,8 @@ const HTTP = {
 };
 
 (async()=>{
-	const V = await HTTP.Get("fireyauto.github.io","/cswebsocketserver/version.txt");
+	let V = await HTTP.Get("fireyauto.github.io","/cswebsocketserver/version.txt");
+	V=V.trimEnd();
 	if(Version!=V){
 		console.warn(`You are using an out-of-date version!\nYour Version: ${Version}\nNew Version: ${V}`);
 	}else{

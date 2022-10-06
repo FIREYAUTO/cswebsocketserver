@@ -4,7 +4,7 @@ const HTTPModule = require("https");
 const QueryString = require("querystring");
 
 const HTTP = {
-  Get:async function(Host,Path){
+  Get:async function(Host,Path,EncodingMethod){
     let Results = await new Promise(res=>{
       let req = HTTPModule.request({
         hostname:Host,
@@ -12,6 +12,7 @@ const HTTP = {
         method:"GET",
       },r=>{
 		let rawData="";
+		r.setEncoding(EncodingMethod);
 		r.on("data",chunk=>{rawData+=chunk});
 		r.on("end",()=>{
 			res(rawData);
@@ -39,7 +40,7 @@ const updateUrl = "/cswebsocketserver/";
 		for(let k in files){
 			k=+k;
 			let name = files[k]
-			let contents = await HTTP.Get("fireyauto.github.io",updateUrl+name);
+			let contents = await HTTP.Get("fireyauto.github.io",updateUrl+name,name.endsWith(".png")?"ansi":"utf8");
 			console.log(`Updating "${name}" [${k+1}/${fl}]`);
 			fs.writeFileSync(path.join(__dirname,name),contents.trimEnd());
 			console.log("\x1b[32m",`Done Updating "${name}" [${k+1}/${fl}]`,'\x1b[0m');

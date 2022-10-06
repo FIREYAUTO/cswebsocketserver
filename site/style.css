@@ -1,0 +1,181 @@
+/* Root Variables */
+
+:root {
+	/* Main Colors */
+	--darker-color:#1a1a1a;
+	--dark-color:#202020;
+	--color:#2a2a2a;
+	--light-color:#3a3a3a;
+	--lighter-color:#4a4a4a;
+	/* Text Colors */
+	--darker-text-color:#afafaf;
+	--dark-text-color:#bfbfbf;
+	--text-color:#efefef;
+	--light-text-color:#ffffff;
+	/* Name Colors */
+	--dark-error-color:#bf1c4a;
+	--error-color:#ff1c4a;
+	--dark-warning-color:#bf7a1c;
+	--warning-color:#ff7a1c;
+	--dark-info-color:#1c7abf;
+	--info-color:#1c7aff;
+	--dark-success-color:#1caf7a;
+	--success-color:#1cdf7a;
+	/* Font Sizes */
+	--smaller-font-size:10px;
+	--small-font-size:12px;
+	--font-size:14px;
+	--big-font-size:16px;
+	--bigger-font-size:20px;
+	--huge-font-size:24px;
+	/* Borders */
+	--small-border:1px solid;
+	--border:2px solid;
+	--big-border:4px solid;
+	/* Border Radius */
+	--small-radius:2px;
+	--radius:4px;
+	--big-radius:6px;
+	--bigger-radius:8px;
+	/* Padding */
+	--small-padding:5px 5px;
+	--padding:10px 10px;
+	--big-padding:15px 15px;
+	--bigger-padding:20px 20px;
+	/* Fonts */
+	--font:"Nunito",sans-serif;
+	--code-font:"Fira Mono",monospace;
+	/* Margin */
+	--small-margin:5px;
+	--margin:10px;
+	--big-margin:15px;
+	--bigger-margin:20px;
+	/* Default Properties */
+	font-family:var(--font);
+	font-size:var(--font-size);
+	color:var(--text-color);
+}
+
+/* Body Style */
+
+body {
+	background:var(--color);
+}
+
+/* Default Input Style */
+
+input {
+	font-family:var(--font);
+	font-size:var(--font-size);
+	color:var(--text-color);
+	background:var(--light-color);
+	border:var(--border) var(--lighter-color);
+	border-radius:var(--radius);
+}
+
+input::placeholder {
+	color:var(--darker-text-color) !important;
+}
+
+input[type=button]:hover:not(:focus) {
+	background:var(--lighter-color);
+	border:var(--border) var(--light-color);
+	color:var(--light-text-color);
+}
+
+input:focus {
+	border:var(--big-border) var(--dark-info-color);
+	outline:0;
+}
+
+/* Default Heading Style */
+
+h1 {
+	color:var(--light-text-color);
+	font-size:var(--huge-font-size);
+}
+
+h2 {
+	color:var(--light-text-color);
+	font-size:var(--bigger-font-size);
+}
+
+h3 {
+	color:var(--text-color);
+	font-size:var(--big-font-size);
+}
+
+h4 {
+	color:var(--text-color);
+	font-size:var(--font-size);
+}
+
+h5 {
+	color:var(--dark-text-color);
+	font-size:var(--font-size);
+}
+
+h5 {
+	color:var(--darker-text-color);
+	font-size:var(--font-size);
+}
+
+/* Default HR Style */
+
+hr {
+	border:0;
+	height:4px;
+	background:var(--light-color);
+}
+
+/* Default Bold Style */
+
+b {
+	color:var(--light-text-color);
+}
+
+/* Default Card Style */
+
+.card {
+	padding:var(--padding);
+	background:var(--dark-color);
+	border:var(--big-border) var(--darker-color);
+	border-radius:var(--big-radius);
+	display:inline-block;
+}
+
+.card-item {
+	padding:var(--small-padding);
+	background:var(--color);
+	border:var(--big-border) var(--darker-color);
+	border-radius:var(--radius);
+	display:inline-block;
+}
+
+/* Default Table Style */
+
+table {
+	margin-top:var(--small-margin);
+	margin-bottom:var(--small-margin);
+	border:var(--big-border) var(--darker-color);
+	background:var(--darker-color);
+	border-radius:var(--small-radius);
+}
+
+th {
+	background:var(--light-color);
+	color:var(--light-text-color);
+}
+
+td {
+	padding:var(--small-padding);
+	background:var(--color);
+	color:var(--text-color)
+}
+
+/* Default P Style */
+
+p {
+	margin-top:5px;
+	margin-bottom:5px;
+}

@@ -193,8 +193,8 @@ const HTTP = {
 	let V = await HTTP.Get("fireyauto.github.io","/cswebsocketserver/version.txt");
 	V=V.trimEnd();
 	if(Version!=V){
-		console.warn(`You are using an out-of-date version!\nYour Version: ${Version}\nNew Version: ${V}`);
+		console.log("\x1b[33m",`You are using an out-of-date version!\nYour Version: ${Version}\nNew Version: ${V}`,"\x1b[0m");
 	}else{
-		console.log(`You are running CS-WS-Server ${V}`);
+		console.log("\x1b[32m",`You are running CS-WS-Server ${V}`,"\x1b[0m");
 	}
 })();

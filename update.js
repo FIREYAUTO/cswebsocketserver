@@ -28,7 +28,7 @@ const HTTP = {
   },
 };
 
-const files = ["site/customize.css","site/index.html","site/site.js","site/style.css","update.js","start.bat","update.bat","package.json","setup.bat"];
+const files = ["site/customize.css","site/index.html","site/site.js","site/style.css","update.js","start.bat","update.bat","package.json","setup.bat","site/icon.png"];
 const updateUrl = "/cswebsocketserver/";
 
 (async()=>{
